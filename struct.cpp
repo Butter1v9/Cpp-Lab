@@ -3,6 +3,7 @@
 #include <string>
 using namespace std;
 
+
 int main(){
     enum MealType {NO_PREF, REGULAR, LOW_FAT, VEGETARIAN};
 
@@ -11,11 +12,13 @@ int main(){
         MealType mealPref;
         bool isFreqFlyer;
         string freqFlyerNum;
+
         int test(){
             cout << "Hello world" << endl;
             return 0;
         }
     };
+
 
     Passenger pass = {"John Smith", VEGETARIAN, true, "11994"};
     pass.test();
@@ -26,8 +29,9 @@ int main(){
 
     Passenger *p; // creating pointer of type Passenger
     p = new Passenger; // assigning pointer to new Passenger
-    p->name = "Name: pointer of type passenger";
+    p->name = "Name: pointer of type passenger"; // p->name == (*p).name
     p->test();
+    cout << (*p).name << endl;
     delete p; // makes p a "dangling pointer"
     // does not delete tha actual pointer, just removes the hold on the memory etc.
     //cout << p->name << endl; // still can access pointer
@@ -40,4 +44,5 @@ int main(){
     string& penName = author; // penName is an alias for author
     penName = "Mark Twain"; // now author = “Mark Twain”
     cout << author << endl; // outputs “Mark Twain”
+
 }
