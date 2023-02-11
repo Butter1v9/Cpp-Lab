@@ -20,7 +20,12 @@ int main(){
 
     cout << i1 << endl << i2 << endl;
 
-
+    // implicit casting
+    int a = 6;
+    double b = 2.5;
+    double c = a / b; // double(a) / b --implicit casting
+    int d = c; // d = int(c) --implicit casting 
+    cout << d << endl;
 
     return EXIT_SUCCESS;
 }
