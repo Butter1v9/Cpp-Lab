@@ -11,7 +11,7 @@ int main(){
     int k = --i; // pre-increment operation = applies decrement then returns value, k = 2, i = 2;
     cout << a[k++] << endl; // returns a[2], then increments k by 1 (k = 3);
     cout << k << endl;
-
+ 
 
     return EXIT_SUCCESS;
 }
