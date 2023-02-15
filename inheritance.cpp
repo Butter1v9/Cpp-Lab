@@ -6,9 +6,11 @@ using namespace std;
 class Person{
     public:
         Person(const string& name, const string& idNum);
-        virtual ~Person();
+        virtual ~Person(){
+            cout << "Person destructor activated" << endl;
+        };
         virtual void print();
-        string getName();
+        virtual string getName();
     private:
         string name;
         string idNum;
@@ -17,9 +19,12 @@ class Person{
 class Student : public Person{
     public:
         Student(const string& name, const string& idNum, const string& m, int gradYear);
-        virtual ~Student();
+        virtual ~Student(){
+            cout << "Student destructor activated" << endl;
+        };
         virtual void print();
         void changeMajor(const string& newMajor);
+        virtual string getName();
     private:
         string major;
         int gradYear;
@@ -28,30 +33,32 @@ class Student : public Person{
 
 
 int main(){
-    string mary = "Mary";
-    string idNum = "12-345";
-    Person person(mary, idNum);
-    Student student("Bob", "98-764", "Math", 2012);
-    //cout << person.getName() << endl;
-    //mary = "Mary Jane";
-    //cout << person.getName() << endl;
-    person.print();
-    student.print();
-    // changing student major
-    student.changeMajor("Computer Science");
-    student.print();
+    // string mary = "Mary";
+    // string idNum = "12-345";
+    // Person person(mary, idNum);
+    // Student student("Bob", "98-764", "Math", 2012);
+    // //cout << person.getName() << endl;
+    // //mary = "Mary Jane";
+    // //cout << person.getName() << endl;
+    // person.print();
+    // student.print();
+    // // changing student major
+    // student.changeMajor("Computer Science");
+    // student.print();
 
     Person* pp[100];// create an array of 100 pointers of type Person
-    pp[0] = new Person(mary,idNum);
-    pp[1] = new Student("John", "Cena", "Art", 2023);
-    pp[1]->print();
-    return 0;
+    pp[0] = new Person("Mary","1234");
+    // pp[1] = new Student("John", "1212", "Art", 2023);
+    pp[0]->print();
+    delete pp[0];
+    pp[0]->print();
+    return EXIT_SUCCESS;
 }
-
 
 Person::Person(const string& name, const string& idNum)
     : name(name), idNum(idNum){}
 string Person::getName(){
+    cout << name << endl;
     return name;
 }
 void Person::print(){
@@ -71,4 +78,8 @@ void Student::print(){
 
 void Student::changeMajor(const string& newMajor){
     major = newMajor;
+}
+string Student::getName(){
+    cout << major << endl << gradYear << endl;
+    return major;
 }
