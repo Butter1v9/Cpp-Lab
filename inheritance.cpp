@@ -48,10 +48,16 @@ int main(){
 
     Person* pp[100];// create an array of 100 pointers of type Person
     pp[0] = new Person("Mary","1234");
-    // pp[1] = new Student("John", "1212", "Art", 2023);
-    pp[0]->print();
-    delete pp[0];
-    pp[0]->print();
+    pp[1] = new Student("John", "1212", "Art", 2023);
+    //pp[0]->print();
+    pp[1]->print();
+
+    // pp[1]->changeMajor("CS"); // ERROR - because Person class doesnt have changeMajor function
+    Student* sp = dynamic_cast<Student*>(pp[1]);
+    sp->changeMajor("Undecided");
+    pp[1]->print();
+    //delete pp[0];
+    //pp[0]->print();
     return EXIT_SUCCESS;
 }
 

@@ -11,7 +11,7 @@ class Progression{
         void printProgression(int n);
     protected:
         virtual long firstValue();
-        virtual long nextValue();
+        virtual long nextValue() = 0; // =0 means it is now pure virtual function
     protected:
         long first;
         long cur;
